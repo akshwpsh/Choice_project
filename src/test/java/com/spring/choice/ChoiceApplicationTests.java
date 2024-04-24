@@ -9,5 +9,6 @@ class ChoiceApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+	@Test
+	/** Git upload Test **/
 }
