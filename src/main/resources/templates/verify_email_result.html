@@ -1,0 +1,18 @@
+	<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verification Result</title>
+</head>
+<body>
+    <h2>Email Verification Result</h2>
+    <p th:if="${verificationSuccess_done}" style="color: green;">이메일 인증이 성공적으로 완료되었습니다.</p>
+    <p th:if="${verificationSuccess_error}" style="color: red;">이메일 인증에 실패했습니다. 유효한 링크가 아닙니다.</p>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = '/login';
+        }, 2000);
+    </script>
+</body>
+</html>
