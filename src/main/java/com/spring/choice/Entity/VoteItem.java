@@ -18,40 +18,5 @@ public class VoteItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Vote vote;
-    /*
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int getVoteCount() {
-        return voteCount;
-    }
-
-    public void setVoteCount(int voteCount) {
-        this.voteCount = voteCount;
-    }
-
-    public Vote getVote() {
-        return vote;
-    }
-
-    public void setVote(Vote vote) {
-        this.vote = vote;
-    }
-
-
-     */
 
 }

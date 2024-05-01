@@ -54,6 +54,14 @@
 			<version>1.18.32</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Gmail 의존성 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
