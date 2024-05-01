@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<h2>Sign Up</h2>
+<form th:action="@{/signup}" method="post">
+    <p>아이디 : <input type="text" name="username"/></p>
+    <p th:if="${error_id}" style="color: red;" th:text="${error_id}"></p> <!-- 아이디 중복 에러 메시지 -->
+    <p>비밀번호 : <input type="password" name="password"/></p>
+    <p>성별 :
+        <input type="radio" id="male" name="gender" value="male"/>
+        <label for="male">남자</label>
+        <input type="radio" id="female" name="gender" value="female"/>
+        <label for="female">여자</label>
+    </p>
+    <p>이메일: <input type="text" name="email"/></p>
+    <p th:if="${error_email}" style="color: red;" th:text="${error_email}"></p> <!-- 이메일 중복 에러 메시지 -->
+    <p th:if="${verificationSuccess_error}" style="color:red;" th:text="${verificationSuccess_error}"></p> <!-- 이메일 인증 에러 메시지 -->
+    <p><input type="reset" value="취소"/>
+    <input type="submit" value="회원가입"/></p>
+</form>
+</body>
+</html>
