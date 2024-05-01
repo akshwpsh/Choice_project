@@ -2,10 +2,15 @@ package com.spring.choice;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 
 @Entity
 @Table(name = "VOTE_ITEM_TABLE")
+@Getter
+@Setter
 public class VoteItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +20,7 @@ public class VoteItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Vote vote;
-
+    /*
     public Long getId() {
         return id;
     }
@@ -48,5 +53,7 @@ public class VoteItem {
         this.vote = vote;
     }
 
+
+     */
 
 }

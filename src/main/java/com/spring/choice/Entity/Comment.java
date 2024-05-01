@@ -1,6 +1,8 @@
 package com.spring.choice;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name = "COMMENT_TABLE")
+@Getter
+@Setter
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +28,8 @@ public class Comment {
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> replies = new ArrayList<>();
 
+
+    /*
     public Long getId() {
         return id;
     }
@@ -71,4 +77,5 @@ public class Comment {
     public void setReplies(List<Comment> replies) {
         this.replies = replies;
     }
+     */
 }
