@@ -1,6 +1,9 @@
 package com.spring.choice;
 
+import com.spring.choice.Entity.Board;
+import com.spring.choice.Entity.Comment;
 import com.spring.choice.Repository.BoardRepository;
+import com.spring.choice.Repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +12,13 @@ import java.util.List;
 @Service
 public class BoardService {
     private final BoardRepository boardRepository;
-    // 필요한 경우 다른 리포지토리를 주입받습니다.
+    private final CommentRepository commentRepository;
+
 
     @Autowired
-    public BoardService(BoardRepository boardRepository) {
+    public BoardService(BoardRepository boardRepository, CommentRepository commentRepository) {
         this.boardRepository = boardRepository;
+        this.commentRepository = commentRepository;
     }
 
     // 게시글 생성
@@ -43,11 +48,11 @@ public class BoardService {
         return boardRepository.save(findBoard);
     }
 
-    //addcomment
+    //addComment
     public Comment addComment(Long boardId, Comment comment) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new IllegalArgumentException("게시글이 존재하지 않습니다."));
         comment.setBoard(board);
-        return boardRepository.save(board).getComments().get(board.getComments().size() - 1);
+        return commentRepository.save(comment);
     }
 
     //toggleLike

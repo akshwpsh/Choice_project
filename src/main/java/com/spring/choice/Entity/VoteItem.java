@@ -1,11 +1,9 @@
-package com.spring.choice;
+package com.spring.choice.Entity;
 
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "VOTE_ITEM_TABLE")

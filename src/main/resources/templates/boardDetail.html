@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Detail</title>
+    <style>
+        .reply {
+            margin-left: 40px;
+        }
+    </style>
+    <script>
+        function likeBoard(boardId) {
+            fetch(`/RequestBoards/${boardId}/likes`, {
+                method: 'POST'
+            }).then(() => {
+                location.reload();
+                console.log(boardId);
+
+            });
+        }
+
+        function reply(commentId) {
+            document.getElementById('parentCommentId').value = commentId;
+            document.getElementById('commentForm').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+<h1 th:text="${board.title}"></h1>
+<p th:text="${board.content}"></p>
+<p>Likes: <span th:text="${board.likeCount}"></span></p>
+
+<div th:each="comment : ${board.comments}" th:if="${!comment.reply}">
+    <p th:text="${comment.content}"></p>
+    <div th:each="reply : ${comment.replies}" class="reply">
+        <p th:text="${reply.content}"></p>
+    </div>
+</div>
+
+
+<form action="#" th:action="@{/boards/comments}" method="post">
+    <input type="hidden" th:value="${board.id}" name="boardId">
+    <label for="content">Comment:</label><br>
+    <textarea id="content" name="content" required></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+<!-- 좋아요 버튼 추가 -->
+<button th:onclick="'likeBoard(' + ${board.id} + ')'">좋아요</button>
+</body>
+</html>

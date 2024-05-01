@@ -1,4 +1,4 @@
-package com.spring.choice;
+package com.spring.choice.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

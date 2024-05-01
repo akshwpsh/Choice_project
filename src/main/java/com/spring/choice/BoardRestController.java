@@ -1,15 +1,15 @@
 package com.spring.choice;
 
+import com.spring.choice.Entity.Board;
+import com.spring.choice.Entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/boards")
-public class BoardController {
+@RequestMapping("/RequestBoards")
+public class BoardRestController {
     @Autowired
     private BoardService boardService;
 
@@ -56,17 +56,4 @@ public class BoardController {
         boardService.toggleLike(boardId);
         return ResponseEntity.ok().build();
     }
-
-    @GetMapping("/list")
-    public String list(Model model) {
-        List<Board> boards = boardService.getAllBoards();
-        model.addAttribute("boards", boards);
-        return "boardList.html";
-    }
-
-    @GetMapping("/create")
-    public String create() {
-        return "createBoard.html";
-    }
-
 }
