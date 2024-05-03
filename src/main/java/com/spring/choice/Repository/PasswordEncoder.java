@@ -1,4 +1,4 @@
-package choiceproject.choice;
+package com.spring.choice.Repository;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

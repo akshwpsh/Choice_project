@@ -2,6 +2,8 @@ package com.spring.choice;
 
 import com.spring.choice.Entity.Board;
 import com.spring.choice.Entity.Comment;
+import com.spring.choice.Entity.Vote;
+import com.spring.choice.Entity.VoteItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,20 @@ public class BoardController {
     }
 
     @PostMapping
-    public String createBoard(@ModelAttribute Board board) {
+    public String createBoard(@ModelAttribute Board board, @RequestParam("options") String[] options) {
+
+        Vote vote = new Vote();
+
+        // 각 옵션에 대해 VoteItem을 생성하고 Vote에 추가
+        for (String option : options) {
+            VoteItem voteItem = new VoteItem();
+            voteItem.setContent(option.trim());
+            vote.addVoteItem(voteItem);
+        }
+
+        // Vote를 Board에 설정
+        board.setVote(vote);
+
         boardService.createBoard(board);
         return "redirect:/boards/list";
     }

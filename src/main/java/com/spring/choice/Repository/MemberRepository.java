@@ -1,5 +1,6 @@
-package choiceproject.choice;
+package com.spring.choice.Repository;
 
+import com.spring.choice.Entity.MemberDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<MemberDTO, Long> {

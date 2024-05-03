@@ -18,4 +18,9 @@ public class Vote {
     @OneToMany(mappedBy = "vote", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoteItem> items = new ArrayList<>();
 
+    public void addVoteItem(VoteItem voteItem) {
+        items.add(voteItem);
+        voteItem.setVote(this);
+    }
+
 }
