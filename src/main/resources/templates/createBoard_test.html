@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>테스트</title>
+    <script>
+        function addOption() {
+            var optionsDiv = document.getElementById('options');
+            var newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.name = 'options';
+            optionsDiv.appendChild(newInput);
+        }
+    </script>
+</head>
+<body>
+<h1>테스트</h1>
+<form action="#" th:action="@{/boards}" method="post">
+    <p>Title: <input type="text" id="title" name="title" required></p>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" required></textarea><br>
+
+    <p>Vote title: <input type="text" id="voteTitle" name="voteTitle"></p>
+    <div id="options">
+        <p>Options: <input type="text" name="options"></p>
+    </div>
+    <button type="button" onclick="addOption()">Add option</button>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

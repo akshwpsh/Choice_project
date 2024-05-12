@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <!-- 세션이 설정되어 있지 않은 경우 -->
+    <div th:if="${session.username == null}">
+        <a href="/index">홈</a>
+        <a href="/board">게시판</a>
+        <a href="/login">로그인</a>
+        <a href="/signup">회원가입</a>
+    </div>
+    <!-- 세션이 설정된 경우 -->
+    <div th:if="${session.username != null}">
+        <a href="/index">홈</a>
+        <a href="/board">게시판</a>
+        <a href="/mypage">마이페이지</a>
+        <a href="/logout">로그아웃</a>
+    </div>
+</body>
+</html>

@@ -2,11 +2,14 @@ package com.spring.choice;
 
 import com.spring.choice.Entity.Board;
 import com.spring.choice.Entity.Comment;
+import com.spring.choice.Entity.VoteItem;
 import com.spring.choice.Repository.BoardRepository;
 import com.spring.choice.Repository.CommentRepository;
+import com.spring.choice.Repository.VoteItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,11 +17,13 @@ public class BoardService {
     private final BoardRepository boardRepository;
     private final CommentRepository commentRepository;
 
+    private final VoteItemRepository voteItemRepository;
 
     @Autowired
-    public BoardService(BoardRepository boardRepository, CommentRepository commentRepository) {
+    public BoardService(BoardRepository boardRepository, CommentRepository commentRepository, VoteItemRepository voteItemRepository) {
         this.boardRepository = boardRepository;
         this.commentRepository = commentRepository;
+        this.voteItemRepository = voteItemRepository;
     }
 
     // 게시글 생성
@@ -60,5 +65,18 @@ public class BoardService {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new IllegalArgumentException("게시글이 존재하지 않습니다."));
         board.setLikeCount(board.getLikeCount() + 1);
         boardRepository.save(board);
+    }
+
+    public List<String> vote(Long voteItemId) {
+        VoteItem voteItem = voteItemRepository.findById(voteItemId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid voteItemId: " + voteItemId));
+        voteItem.setVoteCount(voteItem.getVoteCount() + 1);
+        voteItemRepository.save(voteItem);
+
+        List<String> voteCounts = new ArrayList<>();
+        for (VoteItem item : voteItem.getVote().getItems()) {
+            voteCounts.add(item.getContent() + " (" + item.getVoteCount() + ")");
+        }
+        return voteCounts;
     }
 }

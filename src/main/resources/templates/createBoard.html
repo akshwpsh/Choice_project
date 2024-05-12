@@ -3,29 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <title>테스트</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..
+   900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,
+   100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <script>
         function addOption() {
             var optionsDiv = document.getElementById('options');
             var newInput = document.createElement('input');
             newInput.type = 'text';
             newInput.name = 'options';
+            newInput.className = 'new-input';
+
+            var numInputs = optionsDiv.getElementsByTagName('input').length;
+
+            var newPosition = 150 + 56 * numInputs;
+
+            newInput.style.top = newPosition + 'px';
+
             optionsDiv.appendChild(newInput);
+
+            var addButton = document.getElementById('addButton');
+
+            addButton.style.top = newPosition + 56 + 'px';
+            optionsDiv.appendChild(addButton);
+
+            var submitButton = document.getElementById('submitButton');
+            submitButton.style.top = newPosition + 56 + 38 + 'px';
+
+            var frame = document.getElementById('frame');
+            frame.style.height = 400 + numInputs * 40 + 'px';
+
+        }
+
+        function clearValue(input) {
+            input.value = ''; // 입력 폼의 값을 빈 문자열로 설정하여 기존 값이 지워지도록 함
         }
     </script>
+    <style>
+        .container {
+            background-color: gray;
+            width: 100%;
+            height: 100%;
+        }
+        .frame {
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .frame .group-wrapper {
+            width: 1536px;
+            height: 864px;
+        }
+
+        .frame .group {
+            height: 864px;
+        }
+
+        .frame .element {
+            width: 1536px;
+            height: 864px;
+            background-color: #ffffff;
+        }
+
+        .frame .overlap-group {
+            position: relative;
+            height: 864px;
+            background-color: #000000b2;
+        }
+
+        .frame .overlap {
+            position: absolute;
+            width: 898px;
+            height: 400px;
+            top: 248px;
+            left: 319px;
+            background-color: #ffffff;
+            border-radius: 20px;
+        }
+
+        .frame .text-wrapper {
+            top: 37px;
+            left: 50px;
+            color: #000000;
+            font-size: 16px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+
+            font-family: ui-rounded;
+
+        }
+
+        .frame .vector-wrapper {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            top: 30px;
+            left: 34px;
+            background-color: #ffffff;
+            border-radius: 17.5px;
+            border: 1px solid;
+            border-color: #000000;
+        }
+
+        .frame .vector {
+            position: absolute;
+            width: 15px;
+            height: 19px;
+            top: 6px;
+            left: 8px;
+        }
+
+        .frame .div-wrapper {
+            position: absolute;
+            width: 100px;
+            height: 48px;
+            top: 315px;
+            left: 746px;
+            background-color: #000000;
+            border-radius: 20px;
+            color: #d9d9d9;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+
+        }
+
+        .frame .div {
+            top: 11px;
+            left: 31px;
+            color: #d9d9d9;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .frame .text-wrapper-2 {
+            top: 82px;
+            left: 43px;
+            color: #000000;
+            font-size: 18px;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+            border: none;
+            padding: 10px;
+            caret-color: black;
+
+        }
+        .frame .text-wrapper-2:focus {
+            border: none;
+        }
+
+        .frame .overlap-2 {
+            position: absolute;
+            width: 353px;
+            height: 25px;
+            top: 83px;
+            left: 493px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 2px solid;
+            border-color: #000000;
+            padding: 10px;
+
+        }
+
+        .frame .text-wrapper-3 {
+            top: 8px;
+            left: 29px;
+            color: #000000;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .frame .overlap-3 {
+            position: absolute;
+            width: 353px;
+            height: 25px;
+            top: 141px;
+            left: 494px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 2px solid;
+            border-color: #000000;
+            padding: 10px;
+        }
+        .frame .overlap-5 {
+            position: absolute;
+            width: 353px;
+            height: 25px;
+            top: 199px;
+            left: 494px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 2px solid;
+            border-color: #000000;
+            padding: 10px;
+        }
+
+        .frame .text-wrapper-4 {
+            top: 5px;
+            left: 28px;
+            color: #000000;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .frame .overlap-4 {
+            position: absolute;
+            width: 375px;
+            height: 42px;
+            top: 257px;
+            left: 494px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 1px dashed;
+            border-color: #000000;
+            color: #65676b;
+        }
+
+        .frame .text-wrapper-5 {
+            top: 8px;
+            left: 28px;
+            color: #000000;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+
+        .frame .text-wrapper-6 {
+            top: 197px;
+            left: 709px;
+            color: #ffffff;
+            font-size: 20px;
+            white-space: nowrap;
+            position: absolute;
+            font-family: "Inter", Helvetica;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+        .frame .new-input {
+            position: absolute;
+            width: 353px;
+            height: 25px;
+            top: 257px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: 2px solid;
+            border-color: #000000;
+            padding: 10px;
+            left: 494px;
+        }
+        .add-button {
+            margin-top: 10px; /* 버튼의 위쪽 여백 추가 */
+        }
+
+        .head-text {
+            position: absolute;
+            top: -75px;
+            left: 370px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+    </style>
 </head>
 <body>
-<h1>테스트</h1>
-<form action="#" th:action="@{/boards}" method="post">
-    <p>Title: <input type="text" id="title" name="title" required></p>
-    <label for="content">Content:</label><br>
-    <textarea id="content" name="content" required></textarea><br>
+<div class="container">
+    <div class="frame" >
+        <div class="group-wrapper">
+            <div class="group">
+                <div class="element">
+                    <div class="overlap-group" >
+                        <div class="overlap">
+                            <form action="#" th:action="@{/boards}" method="post">
+                                <p class="head-text">새로운 게시글 작성</p>
+                                <p class="text-wrapper"><input type="text" id="title" name="title" required value="게시글 제목" onclick="clearValue(this)"></p>
+                                <label for="content" ></label><br>
+                                <textarea id="content" name="content" class="text-wrapper-2" required onclick="clearValue(this)">내용을 입력하세요</textarea><br>
 
-    <p>Vote title: <input type="text" id="voteTitle" name="voteTitle"></p>
-    <div id="options">
-        <p>Options: <input type="text" name="options"></p>
+                                <p><input  class="overlap-2" type="text" id="voteTitle" name="voteTitle" value="투표 제목" onclick="clearValue(this)"></p>
+                                <div  id="options">
+                                    <p><input class="overlap-3" type="text" name="options" value="예" onclick="clearValue(this)"></p>
+                                    <p><input class="overlap-5" type="text" name="options" value="아니요" onclick="clearValue(this)"></p>
+                                </div>
+                                <button type="button" class="overlap-4" onclick="addOption()" id="addButton">항목 추가</button>
+                                <div class="div"><input class="div-wrapper" type="submit" value="게시" id="submitButton"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="button" onclick="addOption()">Add option</button>
-    <input type="submit" value="Submit">
-</form>
+</div>
 </body>
 </html>

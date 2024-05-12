@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+</head>
+<body>
+<h2>My Page</h2>
+<p>이름 : <span th:text="${member.username}"></span></p>
+<p>성별 : <span th:text="${member.gender == 'male' ? '남자' : '여자'}"></span></p>
+<p>이메일 : <span th:text="${member.email}"></span></p>
+
+<form action="/change-username" method="post">
+    <label for="currentUsername">현재 아이디:</label>
+    <input type="text" id="currentUsername" name="currentUsername" required>
+    <label for="newUsername">새로운 아이디:</label>
+    <input type="text" id="newUsername" name="newUsername" required>
+    <button type="submit">아이디 변경</button>
+</form>
+
+<form action="/change-password" method="post">
+    <label for="currentUsername">현재 아이디:</label>
+    <input type="text" id="currentUsername" name="currentUsername" required>
+    <label for="currentPassword">현재 비밀번호:</label>
+    <input type="password" id="currentPassword" name="currentPassword" required>
+    <label for="newPassword">새로운 비밀번호:</label>
+    <input type="password" id="newPassword" name="newPassword" required>
+    <button type="submit">비밀번호 변경</button>
+    <p th:if="${verificationSuccess_error}" style="color: red;">이메일 인증에 실패했습니다. 유효한 링크가 아닙니다.</p>
+    <p><p th:if="${passwordChanged_error}" style="color: red;" th:text="${passwordChanged_error}"></p><p>
+    <p><p th:if="${passwordChanged_error}" style="color: red;" th:text="${passwordChanged_error}"></p><p>
+    <p><p th:if="${passwordChanged}" style="color: red;" th:text="${passwordChanged}"></p><p>
+    
+    <p><p th:if="${usernameChanged}" style="color: red;" th:text="${usernameChanged}"></p><p>
+    <p><p th:if="${usernameChanged_error}" style="color: red;" th:text="${usernameChanged_error}"></p><p>
+</form>
+
+</body>
+</html>

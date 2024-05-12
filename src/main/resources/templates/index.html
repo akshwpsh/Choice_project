@@ -1,24 +1,340 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: white;
+
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1vh 3vh;
+            border-bottom: 1px solid #000;
+            position: fixed; /* 헤더를 고정 */
+            width: 100%; /* 헤더의 너비를 전체 너비로 설정 */
+            background-color: white; /* 배경색을 흰색으로 설정 */
+            z-index: 100; /* 다른 요소 위에 표시되도록 z-index 설정 */
+        }
+        header a {
+            text-decoration: none; /* 링크에 밑줄 없애기 */
+            color: inherit; /* 링크의 색상을 상속받기 */
+        }
+        header a:active,
+        header a:visited {
+            color: inherit; /* 클릭했을 때와 방문한 후의 색상을 상속받기 */
+        }
+        .header-links {
+            display: flex;
+        }
+        .header-links div {
+            margin-left: 1vh;
+        }
+        .boards {
+            padding-top: 10vh; /* 헤더의 높이만큼 패딩 추가 */
+            padding-bottom: 10vh; /* 페이지 하단에 여백 추가 */
+
+        }
+        .boards ul {
+            list-style: none;
+            padding: 0;
+        }
+        .boards li {
+            border: 1px solid #000;
+            margin: 1vh 40vh;
+            padding: 1vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px; /* 모서리를 둥글게 */
+        }
+        .boards li button {
+            border: 1px solid #000; /* 테두리를 얇게 설정 */
+            width: 100%; /* 버튼의 가로 크기를 부모 요소와 같게 설정 */
+            height: 60px; /* 버튼의 세로 크기를 60px로 설정 */
+            background-color: #fff; /* 버튼의 배경색을 흰색으로 설정 */
+            transition: background-color 0.3s; /* 배경색 변경 효과를 부드럽게 만들기 */
+            border-radius: 10px; /* 버튼을 둥글게 만들기 */
+            text-align: left; /* 텍스트를 왼쪽에 정렬 */
+            padding-left: 10px; /* 텍스트와 버튼 왼쪽 경계와의 간격 설정 */
+            margin-bottom: 1px; /* 버튼 간의 간격을 5px로 설정 */
+        }
+        .boards li button:hover {
+            background-color: #ddd; /* 마우스를 올렸을 때 배경색을 어둡게 변경 */
+        }
+        .boards li div:first-child {
+            border-bottom: 1px solid #000;
+            margin-bottom: 1vh;
+            padding-bottom: 1vh;
+        }
+        .boards li div {
+            padding: 1vh;
+        }
+        .left-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 15vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* 버튼을 위로 정렬 */
+            padding-top: 10vh; /* 헤더를 넘어가지 않게 하기 위한 패딩 */
+            z-index: 0;
+        }
+        .left-panel button {
+            border: 1px solid #000; /* 테두리를 얇게 설정 */
+            width: 50px; /* 버튼의 가로 크기를 50px로 설정 */
+            height: 50px; /* 버튼의 세로 크기를 50px로 설정 */
+            background-color: #fff; /* 버튼의 배경색을 흰색으로 설정 */
+            margin-bottom: 10px; /* 버튼 간의 간격 설정 */
+            border-radius: 10px; /* 버튼을 둥글게 만들기 */
+            transition: background-color 0.3s, border-color 0.3s; /* 배경색과 테두리 색상 변경 효과를 부드럽게 만들기 */
+        }
+        .left-panel button:hover {
+            background-color: #ddd; /* 마우스를 올렸을 때 배경색을 어둡게 변경 */
+            border-color: #777; /* 마우스를 올렸을 때 테두리 색상을 어둡게 변경 */
+        }
+        .like-button {
+            padding: 5px; /* 패딩을 줄입니다. */
+        }
+
+        .like-button-container {
+            /* 좋아요 버튼과 좋아요 수를 가로로 정렬합니다. */
+            /* 좋아요 버튼이 오른쪽으로 가게 합니다. */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: auto;
+        }
+        .comments {
+            position: relative; /* 댓글창의 위치를 게시글에 상대적으로 설정 */
+            width: 100%; /* 댓글 창의 너비를 게시글과 동일하게 설정 */
+            box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 설정 */
+            padding: 10px; /* 내부 여백을 10px로 설정 */
+            max-height: 200px; /* 댓글 창의 최대 높이 설정 */
+        }
+        .reply {
+
+            margin-left: 10vh;
+        }
+
+        .comment-submit {
+            width: 100%;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-input {
+            width: 100%;
+            height: 40px;
+            background-color: white;
+            border: 1px solid #000;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Home Page</h1>
-    <!-- 세션이 설정되어 있지 않은 경우 -->
-    <div th:if="${session.username == null}">
-        <a href="/index">홈</a>
-        <a href="/board">게시판</a>
-        <a href="/login">로그인</a>
-        <a href="/signup">회원가입</a>
+<script>
+    // 투표 버튼 클릭 시 투표 수 증가
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.vote-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var voteItemId = this.dataset.voteItemId;
+                fetch('/boards/vote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'voteItemId=' + voteItemId
+                })
+                    .then(response => response.json())
+                    .then(voteCounts => {
+                        var totalVotes = voteCounts.reduce((total, voteCount) => {
+                            const votes = parseInt(voteCount.split('(')[1].split(')')[0]);
+                            return total + votes;
+                        }, 0);
+
+                        var highestPercentage = 0;
+                        var percentages = voteCounts.map(voteCount => {
+                            const votes = parseInt(voteCount.split('(')[1].split(')')[0]);
+                            const percentage = ((votes / totalVotes) * 100).toFixed(2);
+                            if (percentage > highestPercentage) {
+                                highestPercentage = percentage;
+                            }
+                            return { votes, percentage };
+                        });
+
+                        var board = button.closest('.board');
+                        var voteButtons = board.querySelectorAll('.vote-button');
+                        voteButtons.forEach(function(button, index) {
+                            const { votes, percentage } = percentages[index];
+                            button.textContent = `${voteCounts[index].split(' ')[0]} (${percentage}%, ${votes}표)`;
+                            // 모든 버튼에 대해 기본 색상을 설정
+                            button.style.backgroundColor = '#FFEB3B'; // Yellow
+                            // 가장 높은 백분률을 가진 버튼에만 특별한 색상을 적용
+                            if (percentage == highestPercentage) {
+                                button.style.backgroundColor = '#4CAF50'; // Green
+                            }
+                        });
+                    });
+            });
+        });
+    });
+
+
+    // 좋아요 버튼 클릭 시 좋아요 수 증가
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.like-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var boardId = this.dataset.boardId;
+                fetch(`/RequestBoards/${boardId}/likes`, {
+                    method: 'POST'
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            var likesCountElement = this.nextElementSibling;
+                            likesCountElement.textContent = parseInt(likesCountElement.textContent) + 1;
+                        }
+                    });
+            });
+        });
+    });
+
+    // 페이지가 로드되면 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 모든 댓글 버튼에 대해 이벤트 리스너를 추가
+        document.querySelectorAll('.comment-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 댓글 목록 요소를 찾음
+                var commentsElement = this.nextElementSibling;
+                // 댓글 목록의 표시 상태를 토글
+                if (commentsElement.style.display === 'none') {
+                    commentsElement.style.display = 'block';
+                } else {
+                    commentsElement.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 페이지가 로드되면 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 모든 등록 버튼에 대해 이벤트 리스너를 추가
+        document.querySelectorAll('#comment-submit').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 댓글 입력 필드에서 텍스트를 가져옴
+                var commentText = document.getElementById('comment-input').value;
+                // 게시글 ID를 가져옴
+                var boardId = this.closest('.board').querySelector('.like-button').dataset.boardId;
+
+                // 서버에 댓글 데이터를 전송
+                fetch('/boards/' + boardId + '/comments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ content: commentText })
+                })
+                    .then(response => response.json())
+                    .then(comment => {
+                        // 댓글 목록에 새 댓글을 추가
+                        var commentList = this.previousElementSibling;
+                        var newComment = document.createElement('li');
+                        newComment.textContent = comment.content;
+                        commentList.appendChild(newComment);
+                    });
+            });
+        });
+    });
+</script>
+<header>
+    <h1 style="margin: unset"><a href="/boards/list">골라줘!</a></h1>
+    <div class="header-links">
+        <div th:if="${session.username != null}">
+            <div><a href="/mypage"><i class="fas fa-user"></i></a></div>
+            <div><a href="/logout">로그아웃</a></div>
+        </div>
+        <div th:if="${session.username == null}">
+            <div><a href="/login">로그인</a></div>
+            <div><a href="/signup">회원가입</a></div>
+        </div>
     </div>
-    <!-- 세션이 설정된 경우 -->
-    <div th:if="${session.username != null}">
-        <a href="/index">홈</a>
-        <a href="/board">게시판</a>
-        <a href="/mypage">마이페이지</a>
-        <a href="/logout">로그아웃</a>
-    </div>
+</header>
+<div class="left-panel">
+    <button onclick="location.href='/boards/list'">
+        <i class="fas fa-home"></i> <!-- 홈 아이콘 -->
+    </button>
+
+    <!--<button onclick="location.href='/search'"> -->
+    <!--   <i class="fas fa-search"></i> -->
+    <!-- </button>-->
+
+    <button onclick="location.href='/boards/create'">
+        <i class="fas fa-pencil-alt"></i> <!-- 글쓰기 아이콘 -->
+    </button>
+</div>
+<div class="boards">
+    <ul th:each="board : ${boards}">
+        <li class="board">
+            <!-- 게시글 내용 -->
+            <div style="display: flex; justify-content: space-between;">
+                <span><span th:text="${board.title}"></span></span>
+                <span style="margin-left: auto;">작성자: <span th:text="${board.writer}"></span></span>
+            </div>
+
+            <div><span th:text="${board.content}"></span></div>
+
+            <div th:each="voteItem : ${board.vote.items}">
+                <button class="vote-button" th:data-vote-item-id="${voteItem.id}" th:text="${voteItem.content}">투표하기</button>
+            </div>
+
+            <div class="like-button-container">
+                <button class="like-button" th:data-board-id="${board.id}" style="background: none; border: none;">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <span th:text="${board.likeCount}">0</span>
+            </div>
+
+            <div th:if="${!#lists.isEmpty(board.comments)}">
+                <button class="comment-button">댓글 보기</button>
+                <div class="comments" style="display: none;">
+                    <ul th:each="comment : ${board.comments}" th:if="${!comment.reply}">
+                        <div><span th:text="${comment.writer}"></span></div>
+                        <div><span th:text="${comment.content}"></span></div>
+                        <div th:each="reply : ${comment.replies}" class="reply">
+                            <div th:text="${reply.content}"></div>
+                        </div>
+                    </ul>
+
+
+                </div>
+                <!-- 댓글 입력 필드와 등록 버튼 추가 -->
+
+            </div>
+            <div>
+                <form action="#" th:action="@{/boards/comments}" method="post">
+                    <input type="hidden" th:value="${board.id}" name="boardId">
+                    <textarea class="comment-input" name="content" required></textarea><br>
+                    <input  type="submit" class="comment-submit" value="등록">
+                </form>
+            </div>
+        </li>
+    </ul>
+</div>
 </body>
 </html>

@@ -3,37 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>My Page</title>
+    <style>
+        body {
+            background-color: rgba(var(--b3f, 250, 250, 250), 1);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mypage-container {
+            background-color: white;
+            width: 80%;
+            max-width: 600px;
+            border: 1px solid lightgray;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .mypage-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-wrapper {
+            margin-bottom: 20px;
+        }
+        .info-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .info-value {
+            font-weight: normal;
+        }
+        .form-wrapper {
+            margin-top: 30px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: calc(100% - 20px);
+            height: 30px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            width: 100%;
+            height: 40px;
+            background-color: rgba(0, 162, 255, 0.3);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h2>My Page</h2>
-<p>이름 : <span th:text="${member.username}"></span></p>
-<p>성별 : <span th:text="${member.gender == 'male' ? '남자' : '여자'}"></span></p>
-<p>이메일 : <span th:text="${member.email}"></span></p>
-
-<form action="/change-username" method="post">
-    <label for="currentUsername">현재 아이디:</label>
-    <input type="text" id="currentUsername" name="currentUsername" required>
-    <label for="newUsername">새로운 아이디:</label>
-    <input type="text" id="newUsername" name="newUsername" required>
-    <button type="submit">아이디 변경</button>
-</form>
-
-<form action="/change-password" method="post">
-    <label for="currentUsername">현재 아이디:</label>
-    <input type="text" id="currentUsername" name="currentUsername" required>
-    <label for="currentPassword">현재 비밀번호:</label>
-    <input type="password" id="currentPassword" name="currentPassword" required>
-    <label for="newPassword">새로운 비밀번호:</label>
-    <input type="password" id="newPassword" name="newPassword" required>
-    <button type="submit">비밀번호 변경</button>
-    <p th:if="${verificationSuccess_error}" style="color: red;">이메일 인증에 실패했습니다. 유효한 링크가 아닙니다.</p>
-    <p><p th:if="${passwordChanged_error}" style="color: red;" th:text="${passwordChanged_error}"></p><p>
-    <p><p th:if="${passwordChanged_error}" style="color: red;" th:text="${passwordChanged_error}"></p><p>
-    <p><p th:if="${passwordChanged}" style="color: red;" th:text="${passwordChanged}"></p><p>
-    
-    <p><p th:if="${usernameChanged}" style="color: red;" th:text="${usernameChanged}"></p><p>
-    <p><p th:if="${usernameChanged_error}" style="color: red;" th:text="${usernameChanged_error}"></p><p>
-</form>
-
+<div class="mypage-container">
+    <h2 class="mypage-title">My Page</h2>
+    <div class="info-wrapper">
+        <p><span class="info-label">이름:</span><span class="info-value" th:text="${member.username}"></span></p>
+        <p><span class="info-label">성별:</span><span class="info-value" th:text="${member.gender == 'male' ? '남자' : '여자'}"></span></p>
+        <p><span class="info-label">이메일:</span><span class="info-value" th:text="${member.email}"></span></p>
+    </div>
+    <form action="/change-username" method="post" class="form-wrapper">
+        <label for="currentUsername" class="form-label">현재 아이디:</label>
+        <input type="text" id="currentUsername" name="currentUsername" class="form-input" required>
+        <label for="newUsername" class="form-label">새로운 아이디:</label>
+        <input type="text" id="newUsername" name="newUsername" class="form-input" required>
+        <button type="submit" class="submit-button">아이디 변경</button>
+        <p class="error-message" th:if="${usernameChanged}" th:text="${usernameChanged}"></p>
+        <p class="error-message" th:if="${usernameChanged_error}" th:text="${usernameChanged_error}"></p>
+    </form>
+    <form action="/change-password" method="post" class="form-wrapper">
+        <label for="currentPassword" class="form-label">현재 비밀번호:</label>
+        <input type="password" id="currentPassword" name="currentPassword" class="form-input" required>
+        <label for="newPassword" class="form-label">새로운 비밀번호:</label>
+        <input type="password" id="newPassword" name="newPassword" class="form-input" required>
+        <button type="submit" class="submit-button">비밀번호 변경</button>
+        <p class="error-message" th:if="${verificationSuccess_error}" th:text="${verificationSuccess_error}"></p>
+        <p class="error-message" th:if="${passwordChanged_error}" th:text="${passwordChanged_error}"></p>
+        <p class="error-message" th:if="${passwordChanged}" th:text="${passwordChanged}"></p>
+    </form>
+</div>
 </body>
 </html>

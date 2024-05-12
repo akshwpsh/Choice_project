@@ -109,7 +109,7 @@ public class MemberController {
             if (inputPasswordHash.equals(encodedHash)) {
                 if (member.getEmailCheck() == 1) { // 이메일 인증자만 로그인 하도록 처리
                     session.setAttribute("username", username);
-                    return "redirect:/index";
+                    return "redirect:/boards/list";
                 } else {
                     model.addAttribute("error_email", "이메일 인증이 되지 않은 사용자입니다.");
                     return "login";
@@ -124,7 +124,7 @@ public class MemberController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("username");
-        return "redirect:/index";
+        return "redirect:/boards/list";
     }
 
     // 마이페이지
@@ -184,7 +184,4 @@ public class MemberController {
 
         return "redirect:/mypage";
     }
-
-
-
 }

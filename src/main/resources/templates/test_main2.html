@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body>
+
+<header class="flex h-16 items-center justify-between bg-gray-900 px-6 text-white">
+  <a class="flex items-center gap-2" href="#">
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+    >
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+      <circle cx="12" cy="12" r="4"></circle>
+    </svg>
+    <span class="text-lg font-semibold">Community</span>
+  </a>
+  <nav class="hidden md:flex items-center gap-4">
+    <a class="hover:text-gray-300" href="#">
+      Home
+    </a>
+    <a class="hover:text-gray-300" href="#">
+      Trending
+    </a>
+    <a class="hover:text-gray-300" href="#">
+      New
+    </a>
+    <a class="hover:text-gray-300" href="#">
+      Categories
+    </a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+      Sign In
+    </button>
+    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
+      Sign Up
+    </button>
+  </div>
+</header>
+<main class="container mx-auto my-8 grid gap-8">
+  <div class="grid gap-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">Latest Posts</h2>
+      <div class="flex items-center gap-2">
+        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4"
+          >
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          Filter
+        </button>
+        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4"
+          >
+            <line x1="10" x2="21" y1="6" y2="6"></line>
+            <line x1="10" x2="21" y1="12" y2="12"></line>
+            <line x1="10" x2="21" y1="18" y2="18"></line>
+            <path d="M4 6h1v4"></path>
+            <path d="M4 10h2"></path>
+            <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"></path>
+          </svg>
+          Sort
+        </button>
+      </div>
+    </div>
+    <div class="grid gap-4">
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            How to Build a Successful Community
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              John Doe
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              120 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              30 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            The Importance of Community Engagement
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Jane Smith
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              80 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              15 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            Building a Strong Community Brand
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Michael Johnson
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              100 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              25 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">Top Posts</h2>
+      <a class="text-sm font-medium hover:underline" href="#">
+        View All
+      </a>
+    </div>
+    <div class="grid gap-4">
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            Strategies for Building a Thriving Community
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Emily Davis
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              200 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              50 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            The Power of Community-Driven Innovation
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              David Lee
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              150 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              35 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <div class="flex flex-col items-start gap-2">
+          <a class="text-lg font-semibold hover:underline" href="#">
+            Fostering Meaningful Connections in Your Community
+          </a>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              Sarah Kim
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              180 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              45 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="container mx-auto my-8 grid gap-8">
+  <div class="grid gap-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">Post Details</h2>
+    </div>
+    <div class="rounded-lg bg-gray-100 p-6 dark:bg-gray-800">
+      <div class="flex items-start gap-4">
+        <div class="flex flex-col items-start gap-2">
+          <h1 class="text-2xl font-bold">Building a Thriving Online Community</h1>
+          <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              John Doe
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              200 Votes
+            </div>
+            <div>
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="mr-1 inline h-4 w-4"
+              >
+                <path d="M17 6.1H3"></path>
+                <path d="M21 12.1H3"></path>
+                <path d="M15.1 18H3"></path>
+              </svg>
+              50 Comments
+            </div>
+          </div>
+        </div>
+        <div class="ml-auto flex gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+            <span class="sr-only">Upvote</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+            >
+              <path d="M17 14V2"></path>
+              <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z"></path>
+            </svg>
+            <span class="sr-only">Downvote</span>
+          </button>
+        </div>
+      </div>
+      <div class="mt-4 text-gray-700 dark:text-gray-300">
+        <p>
+          Building a thriving online community is a crucial aspect of modern business and social engagement. In this
+          post, we'll explore the key strategies and best practices for creating a vibrant and engaged community
+          that fosters meaningful connections and drives growth.
+        </p>
+        <p class="mt-4">
+          Effective community building starts with understanding your target audience and their needs. By deeply
+          understanding your community members, you can create content, events, and interactions that resonate with
+          them and keep them engaged. Fostering a sense of belonging and providing value to your community members
+          is essential.
+        </p>
+        <p class="mt-4">
+          Another important aspect is to encourage active participation and user-generated content. Encourage your
+          community members to share their experiences, ideas, and insights. This not only keeps them engaged but
+          also helps to build a sense of ownership and investment in the community.
+        </p>
+        <p class="mt-4">
+          Consistent and transparent communication is also key. Keep your community members informed about the
+          latest developments, changes, and upcoming events. Respond to their questions and concerns promptly and
+          with empathy.
+        </p>
+        <p class="mt-4">
+          By implementing these strategies and continuously refining your approach, you can build a thriving online
+          community that positively impacts your business or organization.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">Comments</h2>
+    </div>
+    <div class="grid gap-4">
+      <div class="flex items-start gap-4 rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+        <span class="relative flex overflow-hidden rounded-full h-10 w-10 shrink-0 border">
+          <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">JD</span>
+        </span>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <div class="font-medium">Jane Doe</div>
+            <time class="text-sm text-gray-500 dark:text-gray-400">2 days ago</time>
+          </div>
+          <p class="mt-2 text-gray-700 dark:text-gray-300">
+            Great post! I really enjoyed the insights on building a thriving online community. The strategies you
+            outlined are spot on and I'm excited to implement some of them in my own community.
+          </p>
+          <div class="mt-2 flex items-center gap-2">
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="h-5 w-5"
+              >
+                <path d="M7 10v12"></path>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+              </svg>
+              <span class="sr-only">Upvote</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

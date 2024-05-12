@@ -3,18 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        body {
+            background-color: rgba(var(--b3f, 250, 250, 250), 1);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            background-color: white;
+            width: 80%;
+            max-width: 380px;
+            height: 330px;
+            border: 1px solid lightgray;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .login-text {
+            font-family: "Lobster", cursive;
+            font-size: 28px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .input-wrapper {
+            margin-top: 30px;
+        }
+        .login-input {
+            font-size: 14px;
+            width: 100%;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.035);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .button-wrapper {
+            border: none;
+            margin-top: 20px;
+            justify-content: center;
+            display: flex;
+            gap: 10px;
+        }
+        .login-button {
+            width: 45%;
+            max-width: 200px;
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            background-color: blue;
+            background-color: rgba(0, 162, 255, 0.3);
+            border: none;
+            border-radius: 5px;
+            padding: 9px;
+            margin-left: 8px;
+        }
+        .error-message {
+            color: red;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h2>Login</h2>
-<form th:action="@{/login}" method="post">
-    <p>아이디 : <input type="text" name="username"/></p>
-    <p>비밀번호 : <input type="password" name="password"/></p>
-    <p><p th:if="${error_login}" style="color: red;" th:text="${error_login}"></p><p>
-    <p><p th:if="${error_email}" style="color: red;" th:text="${error_email}"></p><p>
-    <input type="button" value="홈" onclick="location.href='/index'">
-    <input type="submit" value="로그인"/>
-    </p>
-    
-</form>
+<div class="login-container">
+    <h2 class="login-text">Login</h2>
+    <form th:action="@{/login}" method="post" class="input-wrapper">
+        <p>아이디<input type="text" name="username" class="login-input"/></p>
+        <p>비밀번호<input type="password" name="password" class="login-input"/></p>
+        <p class="error-message" th:if="${error_login}" th:text="${error_login}"></p>
+        <p class="error-message" th:if="${error_email}" th:text="${error_email}"></p>
+        <div class="button-wrapper">
+            <input type="button" value="홈" onclick="location.href='/boards/list'" class="login-button"/>
+            <input type="submit" value="로그인" class="login-button"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>
