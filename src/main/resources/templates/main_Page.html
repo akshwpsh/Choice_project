@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: white;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3vh;
+            border-bottom: 1px solid #000;
+            z-index: 1;
+        }
+        .header-links {
+            display: flex;
+        }
+        .header-links div {
+            margin-left: 1vh;
+        }
+        .boards ul {
+            list-style: none;
+            padding: 0;
+        }
+        .boards li {
+            border: 1px solid #000;
+            margin: 1vh 40vh;
+            padding: 1vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .boards li div:first-child {
+            border-bottom: 1px solid #000;
+            margin-bottom: 1vh;
+            padding-bottom: 1vh;
+        }
+        .boards li div {
+            padding: 1vh;
+        }
+        .left-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 15vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* 버튼을 위로 정렬 */
+            padding-top: 10vh; /* 헤더를 넘어가지 않게 하기 위한 패딩 */
+            z-index: 0;
+        }
+        .left-panel button {
+            margin: 1vh 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>골라줘!</h1>
+    <div class="header-links">
+        <div><a href="/login">로그인</a></div>
+        <div><a href="/signup">회원가입</a></div>
+        <div><a href="/profile"><i class="fas fa-user"></i></a></div>
+    </div>
+</header>
+<div class="left-panel">
+    <button onclick="location.href='/search'">검색</button>
+    <button onclick="location.href='/create'">글쓰기</button>
+</div>
+<div class="boards">
+    <ul th:each="board : ${boards}">
+        <li>
+            <div>작성자: <span th:text="${board.author}"></span></div>
+            <div>내용: <span th:text="${board.content}"></span></div>
+            <div th:each="voteItem : ${board.voteItems}">
+                <button th:onclick="'/vote/' + ${voteItem.id}">투표하기</button>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
