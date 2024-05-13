@@ -64,7 +64,7 @@ public class MemberController {
             helper = new MimeMessageHelper(message, true);
             helper.setTo(email);
             helper.setSubject("회원가입을 확인해주세요");
-            String verificationLink = "http://localhost:8080/verify-email/" + id;
+            String verificationLink = "http:///스프링.커뮤니티.한국:8089/verify-email/" + id;
             String emailContent = "<p>회원가입을 완료하려면 아래 링크를 클릭하여 이메일을 확인해주세요.</p>"
                     + "<p><a href=\"" + verificationLink + "\">이메일 인증하기</a></p>";
             helper.setText(emailContent, true);
