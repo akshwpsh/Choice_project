@@ -44,49 +44,49 @@ public class MemberController {
             model.addAttribute("error_email", "이미 사용 중인 이메일입니다.");
         } else {
             // SHA256 + SALT 비밀번호 암호화
-            String encryptedPassword = PasswordEncoder.encode(member.getPassword());
-            member.setPassword(encryptedPassword);
+            //String encryptedPassword = PasswordEncoder.encode(member.getPassword());
+            //member.setPassword(encryptedPassword);
 
-            member.setEmailCheck(0); // 0 = 미인증 , 1 = 인증
+            //member.setEmailCheck(0); // 0 = 미인증 , 1 = 인증
             memberRepository.save(member);
             // 이메일 전송
-            sendVerificationEmail(member.getEmail(), member.getId());
+            //sendVerificationEmail(member.getEmail(), member.getId());
             return "redirect:/verify-email";
         }
         return "signup";
     }
 
     // 이메일 전송
-    private void sendVerificationEmail(String email, Long id) {
-        MimeMessage message = emailSender.createMimeMessage();
-        MimeMessageHelper helper;
-        try {
-            helper = new MimeMessageHelper(message, true);
-            helper.setTo(email);
-            helper.setSubject("회원가입을 확인해주세요");
-            String verificationLink = "http:///스프링.커뮤니티.한국:8089/verify-email/" + id;
-            String emailContent = "<p>회원가입을 완료하려면 아래 링크를 클릭하여 이메일을 확인해주세요.</p>"
-                    + "<p><a href=\"" + verificationLink + "\">이메일 인증하기</a></p>";
-            helper.setText(emailContent, true);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-        emailSender.send(message);
-    }
+//    private void sendVerificationEmail(String email, Long id) {
+//        MimeMessage message = emailSender.createMimeMessage();
+//        MimeMessageHelper helper;
+//        try {
+//            helper = new MimeMessageHelper(message, true);
+//            helper.setTo(email);
+//            helper.setSubject("회원가입을 확인해주세요");
+//            String verificationLink = "http:///스프링.커뮤니티.한국:8089/verify-email/" + id;
+//            String emailContent = "<p>회원가입을 완료하려면 아래 링크를 클릭하여 이메일을 확인해주세요.</p>"
+//                    + "<p><a href=\"" + verificationLink + "\">이메일 인증하기</a></p>";
+//            helper.setText(emailContent, true);
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//        }
+//        emailSender.send(message);
+//    }
 
     // 이메일 확인 페이지
-    @GetMapping("/verify-email/{id}")
-    public String verifyEmail(@PathVariable Long id, Model model) {
-        MemberDTO member = memberRepository.findById(id).orElse(null);
-        if (member != null && member.getEmailCheck() == 0) {
-            member.setEmailCheck(1); // 인증된 이메일로 설정
-            memberRepository.save(member);
-            model.addAttribute("verificationSuccess_done", "이메일 인증이 완료되었습니다.");
-        } else {
-            model.addAttribute("verificationSuccess_error", "이미 인증된 이메일입니다.");
-        }
-        return "verify_email_result";
-    }
+//    @GetMapping("/verify-email/{id}")
+//    public String verifyEmail(@PathVariable Long id, Model model) {
+//        MemberDTO member = memberRepository.findById(id).orElse(null);
+//        if (member != null && member.getEmailCheck() == 0) {
+//            member.setEmailCheck(1); // 인증된 이메일로 설정
+//            memberRepository.save(member);
+//            model.addAttribute("verificationSuccess_done", "이메일 인증이 완료되었습니다.");
+//        } else {
+//            model.addAttribute("verificationSuccess_error", "이미 인증된 이메일입니다.");
+//        }
+//        return "verify_email_result";
+//    }
 
     // 로그인
     @GetMapping("/login")
@@ -101,19 +101,14 @@ public class MemberController {
         if (member != null) {
             // 저장된 비밀번호와 비교
             String savedPassword = member.getPassword();
-            String[] parts = savedPassword.split("\\$");
-            String encodedSalt = parts[0];
-            String encodedHash = parts[1];
-            String inputPasswordHash = PasswordEncoder.encodeWithSalt(password, encodedSalt);
+//            String[] parts = savedPassword.split("\\$");
+//            String encodedSalt = parts[0];
+//            String encodedHash = parts[1];
+//            String inputPasswordHash = PasswordEncoder.encodeWithSalt(password, encodedSalt);
             
-            if (inputPasswordHash.equals(encodedHash)) {
-                if (member.getEmailCheck() == 1) { // 이메일 인증자만 로그인 하도록 처리
-                    session.setAttribute("username", username);
-                    return "redirect:/boards/list";
-                } else {
-                    model.addAttribute("error_email", "이메일 인증이 되지 않은 사용자입니다.");
-                    return "login";
-                }
+            if (savedPassword.equals(password)) {
+                session.setAttribute("username", username);
+                return "redirect:/boards/list";
             }
         }
         model.addAttribute("error_login", "아이디 또는 비밀번호가 올바르지 않습니다.");

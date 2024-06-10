@@ -23,25 +23,25 @@ public class BoardController {
     @GetMapping("/list")
     public String list(Model model) {
         List<Board> boards = boardService.getAllBoards();
-        for (Board board : boards) {
-            if (board.getVote() == null) {
-                board.setVote(new Vote());
-            }
-            if (board.getVote().getItems() == null) {
-                board.getVote().setItems(new ArrayList<>());
-            }
-        }
+//        for (Board board : boards) {
+//            if (board.getVote() == null) {
+//                board.setVote(new Vote());
+//            }
+//            if (board.getVote().getItems() == null) {
+//                board.getVote().setItems(new ArrayList<>());
+//            }
+//        }
         model.addAttribute("boards", boards);
         return "index.html";
     }
 
     @GetMapping("/create")
     public String create() {
-        return "createBoard.html";
+        return "createBoard_test.html";
     }
 
     @PostMapping
-    public String createBoard(@ModelAttribute Board board, @RequestParam("options") String[] options, HttpSession session) {
+    public String createBoard(@ModelAttribute Board board, HttpSession session) {
 
         // 현재 로그인된 사용자의 이름을 세션에서 가져옴
         String username = (String) session.getAttribute("username");
@@ -51,17 +51,17 @@ public class BoardController {
         LocalDateTime currentTime = LocalDateTime.now();
         board.setCreatedDate(currentTime); //
 
-        Vote vote = new Vote();
+//        Vote vote = new Vote();
+//
+//        // 각 옵션에 대해 VoteItem을 생성하고 Vote에 추가
+//        for (String option : options) {
+//            VoteItem voteItem = new VoteItem();
+//            voteItem.setContent(option.trim());
+//            vote.addVoteItem(voteItem);
+//        }
 
-        // 각 옵션에 대해 VoteItem을 생성하고 Vote에 추가
-        for (String option : options) {
-            VoteItem voteItem = new VoteItem();
-            voteItem.setContent(option.trim());
-            vote.addVoteItem(voteItem);
-        }
-
-        // Vote를 Board에 설정
-        board.setVote(vote);
+//        // Vote를 Board에 설정
+//        board.setVote(vote);
 
         boardService.createBoard(board);
         return "redirect:/boards/list";

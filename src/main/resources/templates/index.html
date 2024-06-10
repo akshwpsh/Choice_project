@@ -263,7 +263,7 @@
     });
 </script>
 <header>
-    <h1 style="margin: unset"><a href="/boards/list">골라줘!</a></h1>
+    <h1 style="margin: unset"><a href="/boards/list">Petstagram</a></h1>
     <div class="header-links">
         <div th:if="${session.username != null}">
             <div><a href="/mypage"><i class="fas fa-user"></i></a></div>
@@ -299,9 +299,9 @@
 
             <div><span th:text="${board.content}"></span></div>
 
-            <div th:each="voteItem : ${board.vote.items}">
-                <button class="vote-button" th:data-vote-item-id="${voteItem.id}" th:text="${voteItem.content}">투표하기</button>
-            </div>
+<!--            <div th:each="voteItem : ${board.vote.items}">-->
+<!--                <button class="vote-button" th:data-vote-item-id="${voteItem.id}" th:text="${voteItem.content}">투표하기</button>-->
+<!--            </div>-->
 
             <div class="like-button-container">
                 <button class="like-button" th:data-board-id="${board.id}" style="background: none; border: none;">

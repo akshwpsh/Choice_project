@@ -29,15 +29,15 @@ public class MemberDTO {
     
     @Column(name = "password")
     private String password;
-    
+
     @Column(name = "gender")
     private String gender;
     
     @Column(name = "email")
     private String email;
 
-    @Column(name = "email_check")
-    private int emailCheck; // 이메일 인증 처리 (0: 미인증, 1: 인증)
+    //@Column(name = "email_check")
+    //private int emailCheck; // 이메일 인증 처리 (0: 미인증, 1: 인증)
 
     public Long getId() {
         return id;
@@ -79,11 +79,11 @@ public class MemberDTO {
         this.email = email;
     }
 
-    public int getEmailCheck() {
-        return emailCheck;
-    }
-
-    public void setEmailCheck(int emailCheck) {
-        this.emailCheck = emailCheck;
-    }
+//    public int getEmailCheck() {
+//        return emailCheck;
+//    }
+//
+//    public void setEmailCheck(int emailCheck) {
+//        this.emailCheck = emailCheck;
+//    }
 }
